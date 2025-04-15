@@ -183,6 +183,7 @@ def print_portfolio():
     p : Portfolio = portfolio[0]
     total_esg_score = sum(i.esg_total_score for i in p.filtered_tickers_arr)
     st.text(f'Total esg score: {total_esg_score}')
+    st.text(f'benchmark: {p.bench[0]}')
     df = pd.DataFrame({'portfolio returns' : p.df["returns"].cumsum().ffill().bfill(),
                        'bench_returns' : p.bench_df['returns'].cumsum().ffill().bfill()})
     st.subheader('Portfolio Return vs Benchmark')
